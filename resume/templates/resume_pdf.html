@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resume - {{ name }}</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background-color: #f8f9fa;
+        font-family: Arial, sans-serif;
+        font-size: 16px;
+      }
+      .resume-container {
+        background: #ffffff;
+        border-radius: 8px;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+      .resume-header {
+        text-align: center;
+      }
+      .resume-header p {
+        margin-bottom: 5px;
+        color: #6c757d;
+      }
+      .section-title {
+        background-color: #e9ecef;
+        border-radius: 5px;
+        padding-top: 12px;
+        padding-left: 5px;
+        font-size: 18px;
+      }
+      .form-fields {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .section-content {
+        white-space: pre-wrap;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="resume-container">
+      <div class="resume-header">
+        <h1>{{ name }}</h1>
+        <p>{{ email }} | {{ phone }}</p>
+      </div>
+      <div class="form-fields">
+        <div>
+          <div class="section-title">
+            <h3>Education</h3>
+          </div>
+          <div class="section-content">{{ education|linebreaksbr }}</div>
+        </div>
+
+        <div>
+          <div class="section-title">
+            <h3>Skills</h3>
+          </div>
+          <div class="section-content">{{ skills }}</div>
+        </div>
+
+        <div>
+          <div class="section-title">
+            <h3>Work Experience</h3>
+          </div>
+          <div class="section-content">{{ workexperience|linebreaksbr }}</div>
+        </div>
+
+        <div>
+          <div class="section-title">
+            <h3>Projects</h3>
+          </div>
+          <div class="section-content">{{ projects|linebreaksbr }}</div>
+        </div>
+
+        <div>
+          <div class="section-title">
+            <h3>Achievements</h3>
+          </div>
+          <div class="section-content">{{ achievements|linebreaksbr }}</div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

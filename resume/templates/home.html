@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Generate Resume | Bhavuk Jain</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background-color: #f5f7f9;
+        color: #333;
+      }
+      .form-container {
+        background-color: #ffffff;
+        padding: 40px;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        max-width: 800px;
+        margin: 40px auto;
+        overflow-y: auto;
+        height: 80vh;
+        scroll-behavior: smooth;
+        border: 2px solid black;
+      }
+      .form-control {
+        border-radius: 0.5rem;
+        border: 1px solid gray;
+        box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.075);
+        margin-bottom: 1rem;
+        padding: 0.75rem;
+      }
+      .form-control:focus {
+        border-color: #007bff;
+        box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.25);
+      }
+      .btn-primary {
+        border-radius: 0.5rem;
+        background-color: #007bff;
+        border: none;
+        padding: 0.75rem;
+      }
+      .btn-primary:hover {
+        background-color: #0056b3;
+      }
+      h2 {
+        text-align: center;
+        margin-bottom: 1.5rem;
+        color: white;
+        padding: 10px;
+        background: black;
+        box-shadow: 2px 2px 10px 2px white;
+        width: 500px;
+        border-radius: 5px;
+        margin: 0 auto;
+      }
+      .form-control.textarea {
+        height: 100px;
+        overflow-y: auto;
+        resize: vertical;
+      }
+      .form-label {
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+        display: block;
+      }
+    </style>
+    {% load crispy_forms_tags %}
+  </head>
+  <body
+    style="
+      background: linear-gradient(
+        90deg,
+        rgba(2, 0, 36, 1) 0%,
+        rgba(9, 9, 121, 0.6851073192949055) 38%,
+        rgba(10, 180, 215, 1) 100%
+      );
+    "
+  >
+    <div class="container mt-5">
+      <h2>Resume Generator</h2>
+      <div class="form-container">
+        <form method="POST">
+          <h5 style="margin-bottom: 10px">Please enter your details:</h5>
+          {% csrf_token %} {{ form|crispy }}
+          <button type="submit" class="btn btn-primary mt-3 w-100">
+            Generate Resume
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
